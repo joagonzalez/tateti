@@ -22,8 +22,9 @@ class Player():
         return result
 
     def movement(self, board):
-        position = input("Ingrese su jugada: ")
-        board.update_board(position)
+        x = input("Ingrese columna de su jugada: ")
+        y = input("Ingrese columna de su jugada: ")
+        board.update_board([x, y]], symbols(self.symbol))
 
     def get_symbol(self):
         return symbols[self.symbol]
