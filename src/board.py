@@ -39,8 +39,8 @@ class Board():
             return False
 
     def update_board(self, position, symbol):
-        x = position[0]
-        y = position[1]
+        y = position[0]
+        x = position[1]
         self.board[x][y] = symbol 
 
     def get_board(self):
@@ -57,15 +57,15 @@ if __name__ == "__main__":
     board = Board(dimension)
     print("Imprimimos tablero vacio: ")
     print(board)
-    board.update_board([0, 2], 'O')
+    board.update_board([0, 2], 'X')
     board.update_board([0, 0], 'O')
     board.update_board([1, 2], 'X')
     board.update_board([2, 2], 'X')
     board.update_board([1, 0], 'X')
-    board.update_board([2, 0], 'X')
-    board.update_board([0, 1], 'X')
-    board.update_board([1, 1], 'O')
-    board.update_board([2, 1], 'O')
+    board.update_board([2, 0], 'O')
+    board.update_board([0, 1], 'O')
+    board.update_board([1, 1], 'X')
+    board.update_board([2, 1], 'X')
     if dimension == 4:
         board.update_board([3, 3], 'X')
     print("Imprimimos tablero con contenido: ")
