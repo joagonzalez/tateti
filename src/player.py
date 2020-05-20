@@ -24,7 +24,7 @@ class Player():
     def movement(self, board):
         x = input("Ingrese columna de su jugada: ")
         y = input("Ingrese columna de su jugada: ")
-        board.update_board([x, y]], symbols(self.symbol))
+        board.update_board([x, y], symbols(self.symbol))
 
     def get_symbol(self):
         return symbols[self.symbol]
@@ -35,5 +35,5 @@ class Player():
     def change_name(self, name):
         self.name = name
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     pass
