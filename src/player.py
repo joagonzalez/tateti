@@ -22,6 +22,9 @@ class Player():
         return result
 
     def movement(self, board):
+        """
+        Insert symbol in the possition chosen by player
+        """
         x = input("Ingrese columna de su jugada: ")
         y = input("Ingrese fila de su jugada: ")
         

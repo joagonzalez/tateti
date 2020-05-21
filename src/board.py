@@ -5,6 +5,7 @@ class Board():
         self.id = uuid.uuid4()
         self.dimension = dimension
         self.board = [[" " for i in range(dimension)] for i in range(dimension)]
+        self.last_play = ''
 
     def __str__(self):
         result = ''
@@ -41,13 +42,17 @@ class Board():
     def update_board(self, position, symbol):
         y = position[0]
         x = position[1]
-        self.board[x][y] = symbol 
+        self.board[x][y] = symbol
+        self.last_play = symbol 
 
     def get_board(self):
         return self.board
 
     def get_id(self):
         return self.id
+
+    def get_last_play(self):
+        return self.last_play
 
     def get_dimension(self):
         return self.dimension
