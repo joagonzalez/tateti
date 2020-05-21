@@ -34,7 +34,7 @@ class Board():
            self.board[1][0] == self.board[1][1] and self.board[1][1] == self.board[1][2] and self.board[1][0] != ' ' or \
            self.board[2][0] == self.board[2][1] and self.board[2][1] == self.board[2][2] and self.board[2][0] != ' ' or \
            self.board[0][0] == self.board[1][0] and self.board[1][0] == self.board[2][0] and self.board[0][0] != ' ' or \
-           self.board[0][1] == self.board[1][1] and self.board[1][1] == self.board[2][1] and self.board[0][0] != ' ' or \
+           self.board[0][1] == self.board[1][1] and self.board[1][1] == self.board[2][1] and self.board[0][1] != ' ' or \
            self.board[0][2] == self.board[1][2] and self.board[1][2] == self.board[2][2] and self.board[0][2] != ' ' or \
            self.board[0][0] == self.board[1][1] and self.board[1][1] == self.board[2][2] and self.board[0][0] != ' ' or \
            self.board[0][2] == self.board[1][1] and self.board[1][1] == self.board[2][0] and self.board[0][2] != ' ':
@@ -79,6 +79,7 @@ class Board():
 if __name__ == "__main__":
     dimension = int(sys.argv[1])
     board = Board(dimension)
+    board_2 = Board(dimension)
     print("Imprimimos tablero vacio: ")
     print(board)
     board.update_board([0, 2], 'X')
@@ -98,3 +99,9 @@ if __name__ == "__main__":
     print(board.get_board())
     print(board.get_id())
     print(board.get_dimension())
+    # board_2
+    print(board_2)
+    print(board_2.is_tateti())
+    board_2.update_board([0, 0], 'X')
+    print(board_2)
+    print(board_2.is_tateti())

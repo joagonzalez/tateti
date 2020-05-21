@@ -13,8 +13,8 @@ class Game():
 
     def __str__(self):
         result = 'Tablero: ' + str(self.board.get_id()) + '\n'
-        result += str(self.player_1) + '\n'
-        result += str(self.player_2)
+        result += str(self.player_1) + ' - Id: 1' + '\n'
+        result += str(self.player_2) + ' - Id: 2'
         return result
 
     def is_winner(self):
@@ -24,7 +24,7 @@ class Game():
         if self.board.is_tateti():
             return [self.board.is_tateti(), self.board.get_last_play()]
         else: 
-            return self.board.is_tateti()
+            return [self.board.is_tateti()]
 
     def player_begin(self):
         """
@@ -44,7 +44,35 @@ class Game():
 
         current_player.movement(self.board)
 
-if __name__ == "__main__":
-    game = Game('Joaquin', 'Morita', 0, 1, 0, 1, 0, 1)
+    def get_board(self):
+        """
+        Returns board object used in current game
+        """
+        return self.board
 
-    print(game)
+    def get_player(self, player_name):
+        """
+        Returns player object used in current game
+        filtered by name
+        """
+        if self.player_1.get_name() == player_name:
+            current_player = self.player_1
+        else:
+            current_player = self.player_2
+        return current_player
+
+if __name__ == "__main__":
+    game_1 = Game('Joaquin', 'Morita', 0, 1, 0, 1, 0, 1)
+    game_2 = Game('Julia', 'Ramiro', 0, 1, 0, 1, 0, 1)
+    print(game_1)
+    print
+    print(game_2)
+    print
+    print(game_1.get_player('Morita'))
+    print
+    print(game_1.get_board())
+    game_1.movement('Joaquin')
+    print(game_1.get_board())
+    board = game_1.get_board()
+    print(board.get_id())
+    print(game_1.is_winner())
