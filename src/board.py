@@ -27,6 +27,9 @@ class Board():
         return result
 
     def is_tateti(self):
+        """
+        Returns True if tateti position or False if it is not
+        """
         if self.board[0][0] == self.board[0][1] and self.board[0][1] == self.board[0][2] and self.board[0][0] != ' ' or \
            self.board[1][0] == self.board[1][1] and self.board[1][1] == self.board[1][2] and self.board[1][0] != ' ' or \
            self.board[2][0] == self.board[2][1] and self.board[2][1] == self.board[2][2] and self.board[2][0] != ' ' or \
@@ -40,21 +43,37 @@ class Board():
             return False
 
     def update_board(self, position, symbol):
+        """
+        Interface with player class in order to make a movement.
+        last_play is updated so winner player can be identified
+        """
         y = position[0]
         x = position[1]
         self.board[x][y] = symbol
         self.last_play = symbol 
 
     def get_board(self):
+        """
+        Returns board object
+        """
         return self.board
 
     def get_id(self):
+        """
+        Returns board id
+        """
         return self.id
 
     def get_last_play(self):
+        """
+        Returns board last_play
+        """
         return self.last_play
 
     def get_dimension(self):
+        """
+        Returns board dimension
+        """
         return self.dimension
 
 if __name__ == "__main__":

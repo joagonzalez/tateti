@@ -25,22 +25,34 @@ class Player():
         """
         Insert symbol in the possition chosen by player
         """
-        x = input("Ingrese columna de su jugada: ")
-        y = input("Ingrese fila de su jugada: ")
+        _ok = False
+        while not _ok:
+            x = input("Ingrese columna de su jugada: ")
+            y = input("Ingrese fila de su jugada: ")
+            if x < 0 or x > 2 or y < 0 or y > 2:
+                print('Ingrese un casillero valido!\n')
+            else:
+                _ok = True
         
         movement = [int(y), int(x)]
         board.update_board(movement, self.symbols[self.symbol])
-        print("imprimimos desde adentro de movement")
-        print(board)
-        print(board.is_tateti())
 
     def get_symbol(self):
+        """
+        Returns player symbol
+        """
         return self.symbols[self.symbol]
 
     def get_name(self):
+        """
+        Returns player name
+        """
         return self.name
 
     def change_name(self, name):
+        """
+        Allows player name modification
+        """
         self.name = name
 
 if __name__ == "__main__":
@@ -63,4 +75,5 @@ if __name__ == "__main__":
     print(player_1)
     print(player_2)
     player_1.movement(board)
-    # print(board)
+    print(board)
+    print(board.is_tateti())
