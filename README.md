@@ -13,6 +13,6 @@
 (tateti):~/dev/tateti(master)$ python src/test.py 3
 ```
 
-![Figura 2](https://github.com/joagonzalez/tateti/blob/master/doc/game.png = 257x560)
+![Figura 2](https://github.com/joagonzalez/tateti/blob/master/doc/game_thumb.png)
 
-![Figura 3](https://github.com/joagonzalez/tateti/blob/master/doc/game_2.png = 383x101)
+![Figura 3](https://github.com/joagonzalez/tateti/blob/master/doc/game_2_thumb.png)
