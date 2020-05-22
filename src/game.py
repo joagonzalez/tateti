@@ -122,19 +122,4 @@ class Game():
         print("\nBye bye!\n")
 
 if __name__ == "__main__":
-    # tests
-    game_1 = Game('Joaquin', 'Morita', 0, 1, 0, 1, 0, 1)
-    game_2 = Game('Julia', 'Ramiro', 0, 1, 0, 1, 0, 1)
-    print(game_1)
-    print
-    print(game_2)
-    print
-    print(game_1.get_player('Morita'))
-    print
-    print(game_1.get_board())
-    game_1.movement('Joaquin')
-    print(game_1.get_board())
-    board = game_1.get_board()
-    print(board.get_id())
-    print(game_1.is_winner())
-    
+    print("Game class!")

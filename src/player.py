@@ -71,25 +71,4 @@ class Player():
         self.name = name
 
 if __name__ == "__main__":
-    # tests
-    dimension = 3
-    board = Board(dimension)
-    print("Imprimimos tablero vacio: ")
-    print(board)
-    board.update_board([0, 2], 'X')
-    board.update_board([0, 0], 'O')
-    board.update_board([1, 2], 'X')
-    board.update_board([2, 2], 'X')
-    board.update_board([1, 0], 'X')
-    board.update_board([2, 0], 'O')
-    board.update_board([0, 1], 'O')
-    board.update_board([1, 1], 'X')
-    board.update_board([2, 1], 'X')
-    print(board)
-    player_1 = Player('Joaquin', 0, 0, 0)
-    player_2 = Player('Xano', 1, 1, 1)
-    print(player_1)
-    print(player_2)
-    player_1.movement(board)
-    print(board)
-    print(board.is_tateti())
+    print("Player class!")
