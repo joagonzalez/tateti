@@ -47,10 +47,18 @@ class Board():
         Interface with player class in order to make a movement.
         last_play is updated so winner player can be identified
         """
+        _ok = False
         y = position[0]
         x = position[1]
-        self.board[x][y] = symbol
-        self.last_play = symbol 
+        if self.board[x][y] != 'X' and self.board[x][y] != 'O':
+            self.board[x][y] = symbol
+            self.last_play = symbol 
+            _ok = True
+        
+        return _ok
+
+    def reset_board(self):
+        self.board = [[" " for i in range(self.get_dimension())] for i in range(self.get_dimension())]
 
     def get_board(self):
         """
@@ -70,6 +78,12 @@ class Board():
         """
         return self.last_play
 
+    def update_last_play(self, new_last_play):
+        """
+        Update last_play attribute with a new value
+        """
+        self.last_play = new_last_play
+
     def get_dimension(self):
         """
         Returns board dimension
@@ -77,6 +91,7 @@ class Board():
         return self.dimension
 
 if __name__ == "__main__":
+    # tests
     dimension = int(sys.argv[1])
     board = Board(dimension)
     board_2 = Board(dimension)

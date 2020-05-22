@@ -12,9 +12,9 @@ class Player():
         self.symbol = symbol
     
     def __str__(self):
-        type = self.types[self.type]
-        difficulty = self.difficulties[self.difficulty]
-        symbol = self.symbols[self.symbol]
+        type = self.get_type()
+        difficulty = self.get_difficulty()
+        symbol = self.get_symbol()
         if self.type == 0:
             result = "Player: {} - Type: {} - Symbol: {}".format(self.name, type, symbol)
         else:
@@ -27,15 +27,18 @@ class Player():
         """
         _ok = False
         while not _ok:
-            x = input("Ingrese columna de su jugada: ")
-            y = input("Ingrese fila de su jugada: ")
-            if x < 0 or x > 2 or y < 0 or y > 2:
-                print('Ingrese un casillero valido!\n')
-            else:
-                _ok = True
-        
-        movement = [int(y), int(x)]
-        board.update_board(movement, self.symbols[self.symbol])
+            try:
+                x = int(input("Select a column for your move: "))
+                y = int(input("Select a row for your move: "))
+                if x < 0 or x > 2 or y < 0 or y > 2:
+                    print('Select a valid position!\n')
+                else:
+                    movement = [x, y]
+                    _ok = board.update_board(movement, self.get_symbol())
+                    if not _ok:
+                        print("Position selected was already chosen.\nTry again!")    
+            except Exception as e:
+                print('You have entered an invalid option, try again!')    
 
     def get_symbol(self):
         """
@@ -49,6 +52,18 @@ class Player():
         """
         return self.name
 
+    def get_difficulty(self):
+        """
+        Returns player difficulty if computer type
+        """
+        return self.difficulties[self.difficulty]
+
+    def get_type(self):
+        """
+        Returns player type
+        """
+        return self.types[self.type]
+
     def change_name(self, name):
         """
         Allows player name modification
@@ -56,6 +71,7 @@ class Player():
         self.name = name
 
 if __name__ == "__main__":
+    # tests
     dimension = 3
     board = Board(dimension)
     print("Imprimimos tablero vacio: ")
