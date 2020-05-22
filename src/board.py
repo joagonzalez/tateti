@@ -58,6 +58,9 @@ class Board():
         return _ok
 
     def reset_board(self):
+        """
+        Reset board for a new game
+        """
         self.board = [[" " for i in range(self.get_dimension())] for i in range(self.get_dimension())]
 
     def get_board(self):
