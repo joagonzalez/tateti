@@ -53,19 +53,23 @@ class Board():
                     result += 1
         return result
 
+    def is_position_available(self, x, y):
+        _ok = False
+        if self.board[x][y] != 'X' and self.board[x][y] != 'O':
+            _ok = True
+        return _ok
+    
     def update_board(self, position, symbol):
         """
         Interface with player class in order to make a movement.
         last_play is updated so winner player can be identified
         """
-        _ok = False
         y = position[0]
         x = position[1]
-        if self.board[x][y] != 'X' and self.board[x][y] != 'O':
+        _ok = self.is_position_available(x,y)
+        if _ok:
             self.board[x][y] = symbol
             self.last_play = symbol 
-            _ok = True
-        
         return _ok
 
     def reset_board(self):

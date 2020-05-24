@@ -44,7 +44,10 @@ class Player():
                     y = int(input("Select a row for your move: "))
                 else:
                     x,y = self.select_random_position()
-                    time.sleep(random.uniform(0.3,2)) # human experience coefficient 
+                    if board.is_position_available(y,x):
+                        # human experience coefficient
+                        print("espero!")
+                        time.sleep(random.uniform(0.3,2))  
                 if x < 0 or x > 2 or y < 0 or y > 2:
                     print('Select a valid position!\n')
                 else:
