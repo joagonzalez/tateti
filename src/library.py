@@ -61,14 +61,16 @@ def new_player(players):
         while not _ok:
             try:
                 p_difficulty = int(input("Player difficulty [0 = Easy, 1 = Difficult]: "))
-                if p_difficulty == 0 or p_difficulty == 1:
+                if p_difficulty == 0:
                     player.append(p_difficulty)
                     _ok = True
+                elif p_difficulty == 1:
+                    print("Difficulty level not yet developed. Choose another one!")
                 else:
                     print("Insert a valid difficulty!")
             except Exception as e:
                 print("Insert a valid difficulty!")
-
+    
     return player
         
 def play_again():
