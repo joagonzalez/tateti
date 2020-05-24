@@ -46,7 +46,6 @@ class Player():
                     x,y = self.select_random_position()
                     if board.is_position_available(y,x):
                         # human experience coefficient
-                        print("espero!")
                         time.sleep(random.uniform(0.3,2))  
                 if x < 0 or x > 2 or y < 0 or y > 2:
                     print('Select a valid position!\n')
