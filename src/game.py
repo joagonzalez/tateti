@@ -1,7 +1,6 @@
-from player import Player
+from player import Player, random
 from board import Board
 from library import new_player as new_player, play_again as play_again
-import random
 
 class Game():
     def __init__(
@@ -69,11 +68,14 @@ class Game():
         return current_player
 
     def winner_message(self):
-        if self.player_1.get_symbol() == self.board.get_last_play():
-            print("\nCongratulations " + self.player_1.get_name() + "!!! You have won this game.\n")
+        if self.board.is_tateti():
+            if self.player_1.get_symbol() == self.board.get_last_play():
+                print("\nCongratulations " + self.player_1.get_name() + "!!! You have won this game.\n")
+            else:
+                print("\nCongratulations " + self.player_2.get_name() + "!!! You have won this game.\n")
         else:
-            print("\nCongratulations " + self.player_2.get_name() + "!!! You have won this game.\n")
-
+            print("\nThis is a Draw!\n")
+            
     def run(self):
         PLAY_AGAIN = True
         PLAYERS = []
@@ -103,7 +105,7 @@ class Game():
             else:
                 self.board.update_last_play(self.player_2.get_symbol())
 
-            while not self.is_winner()[0]: 
+            while not self.is_winner()[0] and self.board.available_board_positions() != 0: 
                 print(self.get_board())
                 if self.player_1.get_symbol() == self.board.get_last_play():
                     print(self.player_2.get_name() + ', you move now!')

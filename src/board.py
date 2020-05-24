@@ -42,6 +42,17 @@ class Board():
         else:
             return False
 
+    def available_board_positions(self):
+        """
+        Get all available positions. Used to detect a draw
+        """
+        result = 0
+        for i in range(3):
+            for j in range(3):
+                if self.board[i][j] != 'X' and self.board[i][j] != 'O':
+                    result += 1
+        return result
+
     def update_board(self, position, symbol):
         """
         Interface with player class in order to make a movement.

@@ -73,10 +73,10 @@ def new_player(players):
         
 def play_again():
     p_again = ''
-    while p_again.upper() != 'S' and p_again.upper() != 'N':
-        p_again = input("Do you want to play again? [S/N]")
+    while p_again.upper() != 'Y' and p_again.upper() != 'N':
+        p_again = input("Do you want to play again? [Y/N]")
 
-    if p_again == 'S':
+    if p_again.upper() == 'Y':
         return True
     else:
         return False

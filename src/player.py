@@ -1,4 +1,6 @@
 from board import Board
+import random
+import time
 
 class Player():
     types = ['human', 'computer']
@@ -21,6 +23,15 @@ class Player():
             result = "Player: {} - Difficulty: {} - Type: {} - Symbol: {}".format(self.name, difficulty, type, symbol)
         return result
 
+    def select_random_position(self):
+        """
+        Computer type players will use this method to
+        randomly choose a position to play. Difficulty type 0
+        """
+        x = random.randint(0,2)
+        y = random.randint(0,2)
+        return [x, y]
+
     def movement(self, board):
         """
         Insert symbol in the possition chosen by player
@@ -28,8 +39,12 @@ class Player():
         _ok = False
         while not _ok:
             try:
-                x = int(input("Select a column for your move: "))
-                y = int(input("Select a row for your move: "))
+                if self.type == 0:
+                    x = int(input("Select a column for your move: "))
+                    y = int(input("Select a row for your move: "))
+                else:
+                    x,y = self.select_random_position()
+                    time.sleep(random.uniform(0.3,2)) # human experience coefficient 
                 if x < 0 or x > 2 or y < 0 or y > 2:
                     print('Select a valid position!\n')
                 else:
